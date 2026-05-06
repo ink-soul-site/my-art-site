@@ -5,8 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Моите Епични Рисунки - Онлайн Магазин</title>
     <link rel="icon" type="image/png" href="лого.png">
-    <style>.price-table {
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <style>
+          
+        .artwork {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    background: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.artwork img {
+    display: block;
     width: 100%;
+    height: auto;
+    transition: 0.3s;
+}
+
+.artwork img:hover {
+    transform: scale(1.02);
+}
+
+.artwork-info {
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.artwork-title {
+    color: #e74c3c !important;
+    margin-bottom: 5px;
+    font-size: 1.4em;
+}
+
+.artwork-price {
+    color: #f0f0f0 !important;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+    .price-table {
+       width: 100%;
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 1.1em;
@@ -181,61 +223,81 @@
         Той ще ви отведе в моя Instagram профил, където можем да се договорим за детайлите и доставката чрез съобщение.
     </p>
         <div class="artwork">
-            <img src="IMG_20260506_110757359_HDR.jpg" alt="Рисунка 1">
-            <div class="artwork-info">
-                <h3 class="artwork-title">Духът на Самурая</h3>
-                <div class="artwork-price">€30.00</div>
-               <a href="https://www.instagram.com/iavor.georgiev/" class="buy-button">Купи Принт</a>
-            </div>
-        </div>
+    <!-- Само снимката трябва да е в този линк -->
+    <a href="IMG_20260506_110757359_HDR.jpg" data-lightbox="gallery" data-title="Духът на Самурая">
+        <img src="IMG_20260506_110757359_HDR.jpg" alt="Рисунка 1">
+    </a> 
+
+
+    <div class="artwork-info">
+        <h3 class="artwork-title">Духът на Самурая</h3>
+        <div class="artwork-price">€30.00</div>
+        <button onclick="openOrderForm('Духът на Самурая')" class="buy-button">Купи Принт</button>
+    </div>
+</div>
         <div class="artwork">
-            <img src="IMG_20260506_110745860_HDR.jpg" alt="Рисунка 2">
-            <div class="artwork-info">
-                <h3 class="artwork-title">Кристална Флора</h3>
-                <div class="artwork-price">€20.00</div>
-                <a href="https://www.instagram.com/iavor.georgiev/" class="buy-button">Купи Принт</a>
-            </div>
-        </div>
+    <!-- Само снимката за Lightbox -->
+    <a href="IMG_20260506_110745860_HDR.jpg" data-lightbox="gallery" data-title="Кристална Флора">
+        <img src="IMG_20260506_110745860_HDR.jpg" alt="Рисунка 2">
+    
+
+    
+    <div class="artwork-info">
+        <h3 class="artwork-title">Кристална Флора</h3>
+        <div class="artwork-price">€20.00</div>
+        <button onclick="openOrderForm('Кристална Флора')" class="buy-button">Купи Принт</button>
+    </div>
+</div>
         <div class="artwork">
-            <img src="IMG_20260506_110726579_HDR.jpg" alt="Рисунка 3">
-            <div class="artwork-info">
-                <h3 class="artwork-title">Вятърът на Свободата</h3>
-                <div class="artwork-price">€30.00</div>
-                <a href="https://www.instagram.com/iavor.georgiev/" class="buy-button">Купи Принт</a>
-            </div>
-        </div>
+    <a href="IMG_20260506_110726579_HDR.jpg" data-lightbox="gallery" data-title="Вятърът на Свободата">
+        <img src="IMG_20260506_110726579_HDR.jpg" alt="Рисунка 3">
+    </a>
+    <div class="artwork-info">
+        <h3 class="artwork-title">Вятърът на Свободата</h3>
+        <div class="artwork-price">€30.00</div>
+        <button onclick="openOrderForm('Вятърът на Свободата')" class="buy-button">Купи Принт</button>
+    </div>
+</div>
         <div class="artwork">
-            <img src="херо-бг.jpg" alt="Рисунка 4">
-            <div class="artwork-info">
-                <h3 class="artwork-title">Шепот от Миналото</h3>
-                <div class="artwork-price">€30.00</div>
-                <a href="https://www.instagram.com/iavor.georgiev/" class="buy-button">Купи Принт</a>
-            </div>
-        </div>
+    <a href="херо-6г.jpg" data-lightbox="gallery" data-title="Шепот от Миналото">
+        <img src="херо-6г.jpg" alt="Рисунка 4">
+    </a>
+    <div class="artwork-info">
+        <h3 class="artwork-title">Шепот от Миналото</h3>
+        <div class="artwork-price">€30.00</div>
+        <button onclick="openOrderForm('Шепот от Миналото')" class="buy-button">Купи Принт</button>
+    </div>
+</div>
         <div class="artwork">
-            <img src="IMG_20260506_110622078_HDR.jpg" alt="Рисунка 5">
-            <div class="artwork-info">
-                <h3 class="artwork-title">Хакуна Матата:Приятели завинаги</h3>
-                <div class="artwork-price">€20.00</div>
-                <a href="https://www.instagram.com/iavor.georgiev/" class="buy-button">Купи Принт</a>
-            </div>
-        </div>
+    <a href="IMG_20260506_110622078_HDR.jpg" data-lightbox="gallery" data-title="Хакуна Матата: Приятели завинаги">
+        <img src="IMG_20260506_110622078_HDR.jpg" alt="Рисунка 5">
+    </a>
+    <div class="artwork-info">
+        <h3 class="artwork-title">Хакуна Матата: Приятели завинаги</h3>
+        <div class="artwork-price">€20.00</div>
+        <button onclick="openOrderForm('Хакуна Матата')" class="buy-button">Купи Принт</button>
+    </div>
+</div>
         <div class="artwork">
-            <img src="IMG_20260506_110421632_HDR.jpg" alt="Рисунка 6">
-            <div class="artwork-info">
-                <h3 class="artwork-title">Пазителят Ра: Бог на Слънцето</h3>
-                <div class="artwork-price">€20.00</div>
-                <a href="https://www.instagram.com/iavor.georgiev/" class="buy-button">Купи Принт</a>
-            </div>
-        </div>
+    <a href="IMG_20260506_110656123_HDR.jpg" data-lightbox="gallery" data-title="Пазителят Ра: Бог на Слънцето">
+        <img src="IMG_20260506_110656123_HDR.jpg" alt="Рисунка 6">
+    </a>
+    <div class="artwork-info">
+        <h3 class="artwork-title">Пазителят Ра: Бог на Слънцето</h3>
+        <div class="artwork-price">€20.00</div>
+        <button onclick="openOrderForm('Пазителят Ра')" class="buy-button">Купи Принт</button>
+    </div>
+</div>
         <div class="artwork">
-            <img src="IMG_20260506_110456981_HDR.jpg" alt="Рисунка 7">
-            <div class="artwork-info">
-                <h3 class="artwork-title">Лазурна Меланхолия</h3>
-                <div class="artwork-price">€20.00</div>
-                <a href="https://www.instagram.com/iavor.georgiev/" class="buy-button">Купи Принт</a>
-            </div>
-        </div>
+    <a href="ИМЕ_НА_ФАЙЛА.jpg" data-lightbox="gallery" data-title="Лазурна Меланхония">
+        <img src="ИМЕ_НА_ФАЙЛА.jpg" alt="Рисунка 7">
+    </a>
+    <div class="artwork-info">
+        <h3 class="artwork-title">Лазурна Меланхония</h3>
+        <div class="artwork-price">€00.00</div>
+        <button onclick="openOrderForm('Лазурна Меланхония')" class="buy-button">Купи Принт</button>
+    </div>
+</div>
     </div>
 <div class="container">
     <h2 style="text-align: center; color: #e74c3c;">Цени и Размери на Принтове</h2>
@@ -300,5 +362,44 @@
     };
 </script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+
+<div id="order-modal" style="display:none; position:fixed; z-index:10000; left:0; top:0; width:100%; height:100%; background-color: rgba(0,0,0,0.95); overflow:auto;">
+    <div style="background-color: #1a1a1a; margin: 5% auto; padding: 30px; border: 2px solid #e74c3c; width: 90%; max-width: 450px; border-radius: 15px; color: white; position: relative; box-shadow: 0 0 30px rgba(231, 76, 60, 0.3);">
+        <span onclick="closeOrderForm()" style="position: absolute; right: 20px; top: 10px; font-size: 35px; cursor: pointer; color: #e74c3c;">&times;</span>
+        <h2 style="color: #e74c3c; margin-top: 0; text-align: center;">Нова Поръчка</h2>
+        <p id="order-item-display" style="text-align: center; font-size: 1.2em; color: #f0f0f0; margin-bottom: 25px; border-bottom: 1px solid #333; padding-bottom: 10px;"></p>
+        
+        <form action="https://formspree.io/f/mwvybjvv" method="POST">
+            <input type="hidden" name="Картина" id="artwork-name-hidden">
+            
+            <label style="display:block; margin-bottom: 5px;">Вашето Име:</label>
+            <input type="text" name="Име" required style="width:100%; padding:12px; margin-bottom:15px; background:#262626; border:1px solid #444; color:white; border-radius: 5px;">
+            
+            <label style="display:block; margin-bottom: 5px;">Телефон за връзка:</label>
+            <input type="tel" name="Телефон" required style="width:100%; padding:12px; margin-bottom:15px; background:#262626; border:1px solid #444; color:white; border-radius: 5px;">
+            
+            <label style="display:block; margin-bottom: 5px;">Адрес за доставка (Еконт/Спиди):</label>
+            <textarea name="Адрес" required style="width:100%; padding:12px; margin-bottom:15px; background:#262626; border:1px solid #444; color:white; border-radius: 5px; height:80px; resize: none;"></textarea>
+            
+            <button type="submit" style="width: 100%; padding: 15px; background: #e74c3c; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 1.1em;">ПОТВЪРДИ ПОРЪЧКАТА</button>
+        </form>
+    </div>
+</div>
+
+<script>
+function openOrderForm(itemName) {
+    document.getElementById('order-modal').style.display = 'block';
+    document.getElementById('order-item-display').innerText = 'Рисунка: ' + itemName;
+    document.getElementById('artwork-name-hidden').value = itemName;
+}
+function closeOrderForm() {
+    document.getElementById('order-modal').style.display = 'none';
+}
+window.onclick = function(event) {
+    var modal = document.getElementById('order-modal');
+    if (event.target == modal) { modal.style.display = "none"; }
+}
+</script>
 </body>
 </html>
