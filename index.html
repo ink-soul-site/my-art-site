@@ -39,8 +39,8 @@
     color: #e74c3c !important;
     margin-bottom: 5px;
     font-size: 1.4em;
+    text-decoration: none !important; 
 }
-
 .artwork-price {
     color: #f0f0f0 !important;
     font-size: 1.1em;
@@ -242,8 +242,13 @@
     
 
     
+    <div class="artwork">
+    <a href="IMG_20260506_110745860_HDR.jpg" data-lightbox="gallery" data-title="Кристална Флора">
+        <img src="IMG_20260506_110745860_HDR.jpg" alt="Рисунка 2">
+    </a> 
+
     <div class="artwork-info">
-        <h3 class="artwork-title">Кристална Флора</h3>
+        <h3 class="artwork-title">Кристална Флора</h3> 
         <div class="artwork-price">€20.00</div>
         <button onclick="openOrderForm('Кристална Флора')" class="buy-button">Купи Принт</button>
     </div>
@@ -260,7 +265,7 @@
 </div>
         <div class="artwork">
     <a href="херо-6г.jpg" data-lightbox="gallery" data-title="Шепот от Миналото">
-        <img src="херо-6г.jpg" alt="Рисунка 4">
+        <img src="херо-бг.jpg" alt="Рисунка 4">
     </a>
     <div class="artwork-info">
         <h3 class="artwork-title">Шепот от Миналото</h3>
@@ -280,7 +285,7 @@
 </div>
         <div class="artwork">
     <a href="IMG_20260506_110656123_HDR.jpg" data-lightbox="gallery" data-title="Пазителят Ра: Бог на Слънцето">
-        <img src="IMG_20260506_110656123_HDR.jpg" alt="Рисунка 6">
+        <img src="IMG_20260506_110421632_HDR.jpg" alt="Рисунка 6">
     </a>
     <div class="artwork-info">
         <h3 class="artwork-title">Пазителят Ра: Бог на Слънцето</h3>
@@ -289,12 +294,12 @@
     </div>
 </div>
         <div class="artwork">
-    <a href="ИМЕ_НА_ФАЙЛА.jpg" data-lightbox="gallery" data-title="Лазурна Меланхония">
-        <img src="ИМЕ_НА_ФАЙЛА.jpg" alt="Рисунка 7">
+    <a href="IMG_20260506_110745860_HDR.jpg" data-lightbox="gallery" data-title="Лазурна Меланхония">
+        <img src="IMG_20260506_110456981_HDR.jpg" alt="Рисунка 7">
     </a>
     <div class="artwork-info">
         <h3 class="artwork-title">Лазурна Меланхония</h3>
-        <div class="artwork-price">€00.00</div>
+        <div class="artwork-price">€20.00</div>
         <button onclick="openOrderForm('Лазурна Меланхония')" class="buy-button">Купи Принт</button>
     </div>
 </div>
@@ -389,16 +394,26 @@
 
 <script>
 function openOrderForm(itemName) {
+    
+   if (window.event) {
+        window.event.preventDefault();
+        window.event.stopPropagation();
+    }
+    
     document.getElementById('order-modal').style.display = 'block';
     document.getElementById('order-item-display').innerText = 'Рисунка: ' + itemName;
     document.getElementById('artwork-name-hidden').value = itemName;
 }
+
 function closeOrderForm() {
     document.getElementById('order-modal').style.display = 'none';
 }
+
 window.onclick = function(event) {
     var modal = document.getElementById('order-modal');
-    if (event.target == modal) { modal.style.display = "none"; }
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
 </script>
 </body>
