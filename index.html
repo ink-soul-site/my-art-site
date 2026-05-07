@@ -3,129 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Моите Епични Рисунки - Онлайн Магазин</title>
+    <title>Ink & Soul - Авторско Изкуство</title>
     <link rel="icon" type="image/png" href="лого.png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #1a1a1a;
-            color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
+     body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+    opacity: 0.05; /* Едва забележимо */
+    pointer-events: none;
+    z-index: 9999;
+}
+               body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('shepot.jpg');
+    background-size: cover;
+    background-position: center 30%; /* Центрира лицето */
+    background-attachment: fixed;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
         header {
-            background-color: #0d0d0d;
+            background-color: rgba(0, 0, 0, 0.9);
             padding: 20px;
             text-align: center;
-            border-bottom: 2px solid #e74c3c;
+            border-bottom: 4px solid #ff0000;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
         }
-        h1 {
-            margin: 0;
+
+        header h1 {
+            color: #ff0000;
+            margin: 10px 0;
             font-size: 2.5em;
-            color: #e74c3c;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
         }
-        nav {
-            margin-left: 20px;
-        }
+
         nav a {
-            color: #f0f0f0;
+            color: white;
             text-decoration: none;
             margin: 0 15px;
-            font-size: 1.1em;
             font-weight: bold;
+            font-size: 1.2em;
+            transition: 0.3s;
         }
-        nav a:hover {
-            color: #e74c3c;
-        }
+
+        nav a:hover { color: #ff0000; }
+
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 40px auto;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.2);
         }
+
+        /* ГАЛЕРИЯ - ТУК ОПРАВЯМЕ РАЗМЕРА НА СНИМКИТЕ */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px 0;
         }
+
         .artwork {
-            background-color: #262626;
-            border: 1px solid #333;
-            border-radius: 8px;
+            background: #111;
+            border: 2px solid #333;
+            border-radius: 15px;
             overflow: hidden;
-            transition: transform 0.3s ease;
+            transition: 0.3s;
             text-align: center;
         }
+
         .artwork:hover {
             transform: translateY(-10px);
-            border-color: #e74c3c;
+            border-color: #ff0000;
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.4);
         }
+
+        /* ТОВА ОГРАНИЧАВА СНИМКИТЕ ДА НЕ СА ОГРОМНИ */
         .artwork img {
             width: 100%;
-            height: 350px;
+            height: 300px;
             object-fit: cover;
             display: block;
         }
-        .artwork-info {
-            padding: 15px;
-        }
-        .artwork-title {
-            font-size: 1.2em;
-            margin: 0 0 10px 0;
-            color: #e74c3c;
-        }
-        .artwork-price {
-            font-size: 1.1em;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
+
+        .artwork-info { padding: 15px; }
+
+        .artwork-title { color: #ff0000; margin: 10px 0; font-size: 1.3em; }
+
         .buy-button {
             display: inline-block;
-            background-color: #e74c3c;
-            color: #fff;
+            background: #ff0000;
+            color: white;
             padding: 10px 20px;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
-            cursor: pointer;
             border: none;
+            cursor: pointer;
+            transition: 0.3s;
         }
-        .buy-button:hover {
-            background-color: #c0392b;
-        }
+
+        .buy-button:hover { background: white; color: #ff0000; }
+
+        /* ТАБЛИЦА С ЦЕНИ */
         .price-table {
             width: 100%;
+            margin: 30px 0;
             border-collapse: collapse;
-            margin: 25px 0;
-            background-color: #262626;
-            border-radius: 8px;
-            overflow: hidden;
+            background: #222;
         }
-        .price-table th, .price-table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #333;
-            text-align: left;
+        .price-table th { background: #ff0000; padding: 15px; }
+        .price-table td { padding: 12px; border-bottom: 1px solid #444; text-align: center; }
+
+        /* СЕКЦИЯ КОНТАКТИ */
+        #contact {
+            padding: 50px 20px;
+            text-align: center;
+            background: #000;
+            border-top: 4px solid #ff0000;
         }
-        .price-table thead {
-            background-color: #e74c3c;
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
         }
+
+        .btn-fb { background: #1877F2; }
+        .btn-ig { background: #E1306C; }
+        .btn-ph { background: #444; }
+
         html { scroll-behavior: smooth; }
-    </style>
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 2. Прилагаме я върху основното заглавие */
+#home h1 {
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+
+/* 3. Прилагаме я върху малкия текст под него с малко закъснение */
+#home p {
+    animation: fadeInUp 1.5s ease-out 0.5s forwards;
+    opacity: 0; /* Държим го скрит, докато не започне анимацията */
+}    
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 0, 0, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+}
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: #ff0000;
+    width: 0%;
+    z-index: 10001;
+    box-shadow: 0 0 10px #ff0000;
+}
+
+#home .buy-button {
+    animation: pulse 2s infinite;
+}
+</style>
 </head>
 <body>
-
-<header>
-    <img src="лого.png" alt="Logo" style="height: 50px; margin-right: 15px; border-radius: 50%;">
+    <div id="progress-bar"></div> 
+<<header>
+    <img src="лого.png" alt="Logo" style="height: 60px; border-radius: 50%;">
     <h1>Ink & Soul</h1>
+    
     <nav>
-        <a href="#gallery">Галерия</a>
-        <a href="#contact">За мен</a>
+        <a href="#home">НАЧАЛО</a>
+        <a href="#gallery">ГАЛЕРИЯ</a>
+        <a href="#contact">ЗА МЕН</a>
     </nav>
 </header>
-
 <section id="home" style="
     height: 100vh; 
     display: flex; 
@@ -133,102 +208,81 @@
     justify-content: center; 
     align-items: center; 
     text-align: center; 
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('shepot.jpg');
+   background-image: radial-gradient(circle at center, rgba(255, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.9) 80%), url('shepot.jpg');
     background-size: cover; 
-    background-position: center; 
+    background-position: center 30%; /* ТОВА ще свали лицето малко по-надолу, за да се вижда идеално */
+    background-repeat: no-repeat; 
     background-attachment: fixed;
-    color: white;">
-    
-    <h1 style="font-size: 4em; color: #e74c3c; text-shadow: 2px 2px 10px rgba(0,0,0,0.7);">Ink & Soul</h1>
-    <p style="font-size: 1.5em; max-width: 700px;">Ръчно рисувани графики и мистично изкуство.</p>
-    <a href="#gallery" class="buy-button" style="margin-top: 30px; padding: 15px 40px;">РАЗГЛЕДАЙ ГАЛЕРИЯТА</a>
+    color: white;">    
+    <h1 style="font-size: 5em; color: #ff0000; text-transform: uppercase; text-shadow: 2px 2px 10px rgba(0,0,0,0.7); margin: 0;">Ink & Soul</h1>
+    <p style="font-size: 1.8em; max-width: 700px; text-shadow: 1px 1px 5px rgba(0,0,0,0.7); margin-top: 10px;">
+        Ръчно рисувани графики и мистично изкуство.
+    </p>
+    <a href="#gallery" class="buy-button" style="margin-top: 40px; padding: 15px 40px; font-size: 1.2em;">РАЗГЛЕДАЙ ГАЛЕРИЯТА</a>
 </section>
 
 <div class="container" id="gallery">
-    <p style="text-align: center; margin-bottom: 30px; font-style: italic;">
-        Тук ви представям моите ръчно изработени рисунки.
-    </p>
-    
+    <h2 style="text-align: center; color: white;">Моите Рисунки</h2>
     <div class="gallery">
         <div class="artwork">
-            <a href="tigur.jpg" data-lightbox="gallery" data-title="Духът на Самурая">
-                <img src="tigur.jpg" alt="Самурай">
-            </a>
+            <a href="tigur.jpg" data-lightbox="gallery"><img src="tigur.jpg"></a>
             <div class="artwork-info">
                 <h3 class="artwork-title">Духът на Самурая</h3>
-                <div class="artwork-price">€30.00</div>
+                <div style="margin-bottom:15px;">€30.00</div>
                 <button onclick="openOrderForm('Духът на Самурая')" class="buy-button">Купи Принт</button>
             </div>
         </div>
-
         <div class="artwork">
-            <a href="cvete.jpg" data-lightbox="gallery" data-title="Кристална Флора">
-                <img src="cvete.jpg" alt="Цвете">
-            </a>
+            <a href="cvete.jpg" data-lightbox="gallery"><img src="cvete.jpg"></a>
             <div class="artwork-info">
                 <h3 class="artwork-title">Кристална Флора</h3>
-                <div class="artwork-price">€20.00</div>
+                <div style="margin-bottom:15px;">€20.00</div>
                 <button onclick="openOrderForm('Кристална Флора')" class="buy-button">Купи Принт</button>
             </div>
         </div>
-
         <div class="artwork">
-            <a href="kon.jpg" data-lightbox="gallery" data-title="Вятърът на Свободата">
-                <img src="kon.jpg" alt="Кон">
-            </a>
+            <a href="kon.jpg" data-lightbox="gallery"><img src="kon.jpg"></a>
             <div class="artwork-info">
                 <h3 class="artwork-title">Вятърът на Свободата</h3>
-                <div class="artwork-price">€30.00</div>
+                <div style="margin-bottom:15px;">€30.00</div>
                 <button onclick="openOrderForm('Вятърът на Свободата')" class="buy-button">Купи Принт</button>
             </div>
         </div>
-
         <div class="artwork">
-            <a href="shepot.jpg" data-lightbox="gallery" data-title="Шепот от Миналото">
-                <img src="shepot.jpg" alt="Шепот">
-            </a>
+            <a href="shepot.jpg" data-lightbox="gallery"><img src="shepot.jpg"></a>
             <div class="artwork-info">
                 <h3 class="artwork-title">Шепот от Миналото</h3>
-                <div class="artwork-price">€30.00</div>
+                <div style="margin-bottom:15px;">€30.00</div>
                 <button onclick="openOrderForm('Шепот от Миналото')" class="buy-button">Купи Принт</button>
             </div>
         </div>
-
         <div class="artwork">
-            <a href="hakunamatata.jpg" data-lightbox="gallery" data-title="Хакуна Матата">
-                <img src="hakunamatata.jpg" alt="Лъв">
-            </a>
+            <a href="hakunamatata.jpg" data-lightbox="gallery"><img src="hakunamatata.jpg"></a>
             <div class="artwork-info">
                 <h3 class="artwork-title">Хакуна Матата</h3>
-                <div class="artwork-price">€20.00</div>
+                <div style="margin-bottom:15px;">€20.00</div>
                 <button onclick="openOrderForm('Хакуна Матата')" class="buy-button">Купи Принт</button>
             </div>
         </div>
-
         <div class="artwork">
-            <a href="IMG_20260506_110421632_HDR.jpg" data-lightbox="gallery" data-title="Пазителят Ра">
-                <img src="IMG_20260506_110421632_HDR.jpg" alt="Ра">
-            </a>
+            <a href="IMG_20260506_110421632_HDR.jpg" data-lightbox="gallery"><img src="IMG_20260506_110421632_HDR.jpg"></a>
             <div class="artwork-info">
                 <h3 class="artwork-title">Пазителят Ра</h3>
-                <div class="artwork-price">€20.00</div>
+                <div style="margin-bottom:15px;">€20.00</div>
                 <button onclick="openOrderForm('Пазителят Ра')" class="buy-button">Купи Принт</button>
             </div>
         </div>
-
         <div class="artwork">
-            <a href="lebed.jpg" data-lightbox="gallery" data-title="Лазурна Меланхолия">
-                <img src="lebed.jpg" alt="Лебед">
-            </a>
+            <a href="lebed.jpg" data-lightbox="gallery"><img src="lebed.jpg"></a>
             <div class="artwork-info">
                 <h3 class="artwork-title">Лазурна Меланхолия</h3>
-                <div class="artwork-price">€20.00</div>
+                <div style="margin-bottom:15px;">€20.00</div>
                 <button onclick="openOrderForm('Лазурна Меланхолия')" class="buy-button">Купи Принт</button>
             </div>
         </div>
     </div>
 
-    <h2 style="text-align: center; color: #e74c3c; margin-top: 50px;">Цени и Размери</h2>
+    <h2 style="text-align: center; margin-top: 50px;">ЦЕНИ И РАЗМЕРИ</h2>
     <table class="price-table">
         <thead>
             <tr><th>Формат</th><th>Размер (см)</th><th>Цена</th></tr>
@@ -236,39 +290,52 @@
         <tbody>
             <tr><td>Стандартен A4</td><td>21.0 x 29.7</td><td>20€ - 30€</td></tr>
             <tr><td>Голям A3</td><td>29.7 x 42.0</td><td>30€ - 40€</td></tr>
-            <tr><td>Плакат</td><td>32.0 x 45.0 см.</td><td>40€ - 50€</td></tr>
+            <tr><td>Плакат SRA3</td><td>32.0 x 45.0</td><td>40€ - 50€</td></tr>
             <tr><td>Оригинал</td><td>Ръчно рисуван</td><td>По запитване</td></tr>
         </tbody>
     </table>
 </div>
-
-<section id="contact" style="padding: 60px 20px; text-align: center; background-color: #000; border-top: 2px solid #e74c3c;">
-    <h2 style="color: #e74c3c; margin-bottom: 30px;">Свържи се с мен</h2>
-    
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-        <a href="tel:+359876030418" class="buy-button" style="text-decoration: none; min-width: 200px;">
-            📞 0876030418
-        </a>
-
-        <a href="https://www.instagram.com/iavor.georgiev/" target="_blank" class="buy-button" style="text-decoration: none; min-width: 200px; background-color: #833ab4;">
-            📸 Instagram
-        </a>
-
-        <a href="https://www.facebook.com/profile.php?id=100009464872283&sk=directory_intro" target="_blank" class="buy-button" style="text-decoration: none; min-width: 200px; background-color: #3b5998;">
-            🔵 Facebook
-        </a>
+<section id="about" style="padding: 80px 20px; background: rgba(20, 0, 0, 0.5); border-radius: 20px; margin: 40px auto; max-width: 900px; border: 1px solid #ff0000;">
+    <h2 style="text-align: center; color: #ff0000; font-size: 2.5em; text-transform: uppercase;">За Мен</h2>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 40px; margin-top: 30px;">
+        
+        <div style="flex: 1; min-width: 300px; font-size: 1.2em; line-height: 1.6; color: #eee;">
+            <p>
+                Здравейте! Аз съм <strong>Явор Георгиев</strong> – творец, чието вдъхновение се крие в детайлите и мистиката на черното мастило.
+            </p>
+            <p>
+                Всяка моя рисунка е пътуване през сенките и линиите. Специализирам в ръчно изработени графики, в които влагам не само време, но и душа. За мен изкуството не е просто изображение, а емоция, запечатана върху хартия.
+            </p>
+            <p>
+                Вярвам, че всеки дом заслужава частица уникалност. Тук ще откриете принтове на моите най-добри творби, готови да вдъхнат нов живот на вашето пространство.
+            </p>
+        </div>
     </div>
 </section>
+
+<section id="contact">
+    <h2 style="color: #ff0000;">СВЪРЖИ СЕ С МЕН</h2>
+    <div class="contact-buttons">
+        <a href="tel:+359876030418" class="buy-button btn-ph">📞 0876030418</a>
+        <a href="https://www.instagram.com/iavor.georgiev/" target="_blank" class="buy-button btn-ig">📸 INSTAGRAM</a>
+        <a href="https://www.facebook.com/profile.php?id=100009464872283" target="_blank" class="buy-button btn-fb">🔵 FACEBOOK</a>
+    </div>
+</section>
+<footer style="text-align: center; padding: 40px; background: rgba(0,0,0,0.9); border-top: 1px solid #ff0000; color: #555; font-size: 0.9em;">
+    <p>© 2026 Ink & Soul - Авторски графики от Явор Георгиев</p>
+    <p style="font-style: italic;">Всяка линия е емоция, всяко мастило е история.</p>
+</footer>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
 
 <div id="order-modal" style="display:none; position:fixed; z-index:10000; left:0; top:0; width:100%; height:100%; background: rgba(0,0,0,0.9);">
-    <div style="background: #1a1a1a; margin: 10% auto; padding: 30px; border: 2px solid #e74c3c; width: 90%; max-width: 400px; border-radius: 10px; color: white;">
-        <h2 id="order-item-display"></h2>
+    <div style="background: #111; margin: 10% auto; padding: 30px; border: 2px solid #ff0000; width: 90%; max-width: 400px; border-radius: 15px; color: white;">
+        <h2 id="order-item-display" style="color:#ff0000;"></h2>
         <form action="https://formspree.io/f/mwvybjvv" method="POST">
             <input type="hidden" name="Картина" id="artwork-name-hidden">
-            <input type="text" name="Име" placeholder="Вашето Име" required style="width:100%; padding:10px; margin: 10px 0; background:#333; color:white; border:none;">
-            <input type="tel" name="Телефон" placeholder="Телефон" required style="width:100%; padding:10px; margin: 10px 0; background:#333; color:white; border:none;">
-            <button type="submit" class="buy-button" style="width:100%;">ПОТВЪРДИ</button>
+            <input type="text" name="Име" placeholder="Вашето Име" required style="width:100%; padding:10px; margin: 10px 0; background:#222; color:white; border:1px solid #444;">
+            <input type="tel" name="Телефон" placeholder="Телефон" required style="width:100%; padding:10px; margin: 10px 0; background:#222; color:white; border:1px solid #444;">
+            <button type="submit" class="buy-button" style="width:100%;">ПОТВЪРДИ ПОРЪЧКАТА</button>
             <button type="button" onclick="closeOrderForm()" style="width:100%; background:none; color:gray; border:none; margin-top:10px; cursor:pointer;">Отказ</button>
         </form>
     </div>
@@ -277,13 +344,26 @@
 <script>
 function openOrderForm(itemName) {
     document.getElementById('order-modal').style.display = 'block';
-    document.getElementById('order-item-display').innerText = itemName;
+    document.getElementById('order-item-display').innerText = 'Поръчка: ' + itemName;
     document.getElementById('artwork-name-hidden').value = itemName;
 }
 function closeOrderForm() {
     document.getElementById('order-modal').style.display = 'none';
 }
 </script>
+
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="position: fixed; bottom: 20px; right: 20px; background: #ff0000; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; z-index: 1000; box-shadow: 0 0 15px rgba(255,0,0,0.5); font-weight: bold; display: flex; align-items: center; justify-content: center; font-size: 20px;">↑</button>
+
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="position: fixed; bottom: 20px; right: 20px; background: #ff0000; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; z-index: 1000; box-shadow: 0 0 15px rgba(255,0,0,0.5); font-weight: bold; font-size: 20px;">↑</button>
+
+    <script>
+    window.onscroll = function() {
+        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrolled = (winScroll / height) * 100;
+        document.getElementById("progress-bar").style.width = scrolled + "%";
+    };
+    </script>
 
 </body>
 </html>
