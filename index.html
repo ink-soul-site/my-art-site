@@ -7,78 +7,6 @@
     <link rel="icon" type="image/png" href="лого.png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
     <style>
-          
-       .artwork {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 30px; 
-    background: #1a1a1a;
-    border-radius: 10px;
-    overflow: hidden;
-    width: 300px; }
-
-.artwork img {
-    display: block;
-    width: 100%;
-    height: auto;
-    transition: 0.3s;
-}
-
-.artwork img:hover {
-    transform: scale(1.02);
-}
-
-.artwork-info {
-    padding: 20px;
-    width: 100%;
-    text-align: center;
-}
-
-.artwork-title {
-    color: #e74c3c !important;
-    margin-bottom: 5px;
-    font-size: 1.4em;
-    text-decoration: none !important; 
-}
-.artwork-price {
-    color: #f0f0f0 !important;
-    font-size: 1.1em;
-    margin-bottom: 15px;
-}
-
-    .price-table {
-       width: 100%;
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 1.1em;
-    background-color: #262626;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-}
-
-.price-table thead tr {
-    background-color: #e74c3c;
-    color: #ffffff;
-    text-align: left;
-    font-weight: bold;
-}
-
-.price-table th, .price-table td {
-    padding: 12px 15px;
-    border-bottom: 1px solid #333;
-}
-
-.price-table tbody tr:hover {
-    background-color: #333;
-    color: #e74c3c;
-    transition: 0.3s;
-}
-
-.price-table tbody tr:last-of-type {
-    border-bottom: 2px solid #e74c3c;
-}
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #1a1a1a;
@@ -90,7 +18,10 @@
             background-color: #0d0d0d;
             padding: 20px;
             text-align: center;
-            border-bottom: 2px solid #e74c3c; /* Червена линия като в Noxus */
+            border-bottom: 2px solid #e74c3c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         h1 {
             margin: 0;
@@ -98,7 +29,7 @@
             color: #e74c3c;
         }
         nav {
-            margin-top: 10px;
+            margin-left: 20px;
         }
         nav a {
             color: #f0f0f0;
@@ -115,14 +46,6 @@
             max-width: 1200px;
             margin: 40px auto;
         }
-        .intro {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        .intro p {
-            font-size: 1.2em;
-            line-height: 1.6;
-        }
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -134,6 +57,7 @@
             border-radius: 8px;
             overflow: hidden;
             transition: transform 0.3s ease;
+            text-align: center;
         }
         .artwork:hover {
             transform: translateY(-10px);
@@ -141,12 +65,12 @@
         }
         .artwork img {
             width: 100%;
-            height: 250px;
+            height: 350px;
             object-fit: cover;
+            display: block;
         }
         .artwork-info {
             padding: 15px;
-            text-align: center;
         }
         .artwork-title {
             font-size: 1.2em;
@@ -167,83 +91,90 @@
             border-radius: 5px;
             font-weight: bold;
             cursor: pointer;
+            border: none;
         }
         .buy-button:hover {
             background-color: #c0392b;
         }
-        footer {
-            background-color: #0d0d0d;
-            padding: 20px;
-            text-align: center;
-            margin-top: 50px;
-            border-top: 2px solid #e74c3c;
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background-color: #262626;
+            border-radius: 8px;
+            overflow: hidden;
         }
-        html {
-            scroll-behavior: smooth;
+        .price-table th, .price-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #333;
+            text-align: left;
         }
+        .price-table thead {
+            background-color: #e74c3c;
+        }
+        html { scroll-behavior: smooth; }
     </style>
-    </head>
-    <body>
+</head>
+<body>
 
-<header style="display: flex; align-items: center; justify-content: center; padding: 20px; background: black;">
- 
+<header>
     <img src="лого.png" alt="Logo" style="height: 50px; margin-right: 15px; border-radius: 50%;">
-    
-    <h1 style="color: #e74c3c; margin: 0;">Ink & Soul: Галерия за авторско изкуство!</h1>
-    
-    <nav style="margin-left: 20px;">
-    <a href="#gallery" style="color: white; margin-right: 15px; text-decoration: none;">Галерия</a>
-    <a href="#contact" style="color: white; text-decoration: none;">За мен</a>
-</nav>
-</header><section id="home" style="
+    <h1>Ink & Soul</h1>
+    <nav>
+        <a href="#gallery">Галерия</a>
+        <a href="#contact">За мен</a>
+    </nav>
+</header>
+
+<section id="home" style="
     height: 100vh; 
     display: flex; 
     flex-direction: column; 
     justify-content: center; 
     align-items: center; 
     text-align: center; 
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('my-art-site/shepot.jpg');
-    background-size: 70%; 
-    background-position: center 30%; 
-    background-repeat: no-repeat; 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('shepot.jpg');
+    background-size: cover; 
+    background-position: center; 
     background-attachment: fixed;
     color: white;">
     
     <h1 style="font-size: 4em; color: #e74c3c; text-shadow: 2px 2px 10px rgba(0,0,0,0.7);">Ink & Soul</h1>
-    <p style="font-size: 1.5em; max-width: 700px; text-shadow: 1px 1px 5px rgba(0,0,0,0.7);">
-        Ръчно рисувани графики и мистично изкуство.
-    </p>
-    <a href="#gallery" class="buy-button" style="margin-top: 30px; padding: 15px 40px; font-size: 1.2em;">РАЗГЛЕДАЙ ГАЛЕРИЯТА</a>
+    <p style="font-size: 1.5em; max-width: 700px;">Ръчно рисувани графики и мистично изкуство.</p>
+    <a href="#gallery" class="buy-button" style="margin-top: 30px; padding: 15px 40px;">РАЗГЛЕДАЙ ГАЛЕРИЯТА</a>
 </section>
-<section id="gallery">
-    <div class="gallery">
-       
+
+<div class="container" id="gallery">
     <p style="text-align: center; margin-bottom: 30px; font-style: italic;">
-        Тук, в моята галерия ви представям рисунки ръчно изработени от мен, но пожеалние мога да направя поръчка по важ вкус!
+        Тук ви представям моите ръчно изработени рисунки.
     </p>
+    
+    <div class="gallery">
         <div class="artwork">
-    <a href="IMG_20260506_110757359_HDR.jpg" data-lightbox="gallery" data-title="Духът на Самурая">
-        <img src="IMG_20260506_110757359_HDR.jpg" alt="Рисунка 1">
-    </a> 
-    <div class="artwork-info">
-        <h3 class="artwork-title">Духът на Самурая</h3>
-        <div class="artwork-price">€30.00</div>
-        <button onclick="openOrderForm('Духът на Самурая')" class="buy-button">Купи Принт</button>
-    </div>
-</div>
-       <div class="artwork">
-    <a href="IMG_20260506_110745860_HDR.jpg" data-lightbox="gallery" data-title="Кристална Флора">
-        <img src="IMG_20260506_110745860_HDR.jpg" alt="Рисунка 2">
-    </a>
-    <div class="artwork-info">
-        <h3 class="artwork-title">Кристална Флора</h3>
-        <div class="artwork-price">€20.00</div>
-        <button onclick="openOrderForm('Кристална Флора')" class="buy-button">Купи Принт</button>
-    </div>
-</div>
-  <div class="artwork">
-            <a href="IMG_20260506_110726579_HDR.jpg" data-lightbox="gallery" data-title="Вятърът на Свободата">
-                <img src="IMG_20260506_110726579_HDR.jpg" alt="Рисунка 3">
+            <a href="tigur.jpg" data-lightbox="gallery" data-title="Духът на Самурая">
+                <img src="tigur.jpg" alt="Самурай">
+            </a>
+            <div class="artwork-info">
+                <h3 class="artwork-title">Духът на Самурая</h3>
+                <div class="artwork-price">€30.00</div>
+                <button onclick="openOrderForm('Духът на Самурая')" class="buy-button">Купи Принт</button>
+            </div>
+        </div>
+
+        <div class="artwork">
+            <a href="cvete.jpg" data-lightbox="gallery" data-title="Кристална Флора">
+                <img src="cvete.jpg" alt="Цвете">
+            </a>
+            <div class="artwork-info">
+                <h3 class="artwork-title">Кристална Флора</h3>
+                <div class="artwork-price">€20.00</div>
+                <button onclick="openOrderForm('Кристална Флора')" class="buy-button">Купи Принт</button>
+            </div>
+        </div>
+
+        <div class="artwork">
+            <a href="kon.jpg" data-lightbox="gallery" data-title="Вятърът на Свободата">
+                <img src="kon.jpg" alt="Кон">
             </a>
             <div class="artwork-info">
                 <h3 class="artwork-title">Вятърът на Свободата</h3>
@@ -252,10 +183,9 @@
             </div>
         </div>
 
-        <!-- Рисунка 4 -->
         <div class="artwork">
             <a href="shepot.jpg" data-lightbox="gallery" data-title="Шепот от Миналото">
-                <img src="shepot.jpg" alt="Рисунка 4">
+                <img src="shepot.jpg" alt="Шепот">
             </a>
             <div class="artwork-info">
                 <h3 class="artwork-title">Шепот от Миналото</h3>
@@ -265,147 +195,85 @@
         </div>
 
         <div class="artwork">
-            <a href="IMG_20260506_110622078_HDR.jpg" data-lightbox="gallery" data-title="Хакуна Матата: Приятели завинаги">
-                <img src="IMG_20260506_110622078_HDR.jpg" alt="Рисунка 5">
+            <a href="hakunamatata.jpg" data-lightbox="gallery" data-title="Хакуна Матата">
+                <img src="hakunamatata.jpg" alt="Лъв">
             </a>
             <div class="artwork-info">
-                <h3 class="artwork-title">Хакуна Матата: Приятели завинаги</h3>
+                <h3 class="artwork-title">Хакуна Матата</h3>
                 <div class="artwork-price">€20.00</div>
                 <button onclick="openOrderForm('Хакуна Матата')" class="buy-button">Купи Принт</button>
             </div>
         </div>
+
         <div class="artwork">
-    <a href="IMG_20260506_110421632_HDR.jpg" data-lightbox="gallery" data-title="Пазителят Ра: Бог на Слънцето">
-    <img src="IMG_20260506_110421632_HDR.jpg" alt="Рисунка 6">
-</a>
-    <div class="artwork-info">
-        <h3 class="artwork-title">Пазителят Ра: Бог на Слънцето</h3>
-        <div class="artwork-price">€20.00</div>
-        <button onclick="openOrderForm('Пазителят Ра')" class="buy-button">Купи Принт</button>
-    </div>
-</div>
+            <a href="IMG_20260506_110421632_HDR.jpg" data-lightbox="gallery" data-title="Пазителят Ра">
+                <img src="IMG_20260506_110421632_HDR.jpg" alt="Ра">
+            </a>
+            <div class="artwork-info">
+                <h3 class="artwork-title">Пазителят Ра</h3>
+                <div class="artwork-price">€20.00</div>
+                <button onclick="openOrderForm('Пазителят Ра')" class="buy-button">Купи Принт</button>
+            </div>
+        </div>
+
         <div class="artwork">
-    <a href="IMG_20260506_110456981_HDR.jpg" data-lightbox="gallery" data-title="Лазурна Меланхолия">
-        <img src="IMG_20260506_110456981_HDR.jpg" alt="Рисунка 7">
-    </a>
-    <div class="artwork-info">
-        <h3 class="artwork-title">Лазурна Меланхолия</h3>
-        <div class="artwork-price">€20.00</div>
-        <button onclick="openOrderForm('Лазурна Меланхолия')" class="buy-button">Купи Принт</button>
+            <a href="lebed.jpg" data-lightbox="gallery" data-title="Лазурна Меланхолия">
+                <img src="lebed.jpg" alt="Лебед">
+            </a>
+            <div class="artwork-info">
+                <h3 class="artwork-title">Лазурна Меланхолия</h3>
+                <div class="artwork-price">€20.00</div>
+                <button onclick="openOrderForm('Лазурна Меланхолия')" class="buy-button">Купи Принт</button>
+            </div>
+        </div>
     </div>
-</div>
-    </div>
-<div class="container">
-    <h2 style="text-align: center; color: #e74c3c;">Цени и Размери на Принтове</h2>
+
+    <h2 style="text-align: center; color: #e74c3c; margin-top: 50px;">Цени и Размери</h2>
     <table class="price-table">
         <thead>
-            <tr>
-                <th>Формат</th>
-                <th>Размер (см)</th>
-                <th>Цена (€.)</th>
-            </tr>
+            <tr><th>Формат</th><th>Размер (см)</th><th>Цена</th></tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Стандартен A4</td>
-                <td>21.0 x 29.7</td>
-                <td>От 20€-30€.</td>
-            </tr>
-            <tr>
-                <td>Голям A3</td>
-                <td>29.7 x 42.0</td>
-                <td>От 30€-40€.</td>
-            </tr>
-            <tr>
-                <td>Плакат A2</td>
-                <td>42.0 x 59.4</td>
-                <td>От 40€-50€.</td>
-            </tr>
-            <tr>
-                <td>Оригинал</td>
-                <td>Ръчно рисуван</td>
-                <td>По запитване</td>
-            </tr>
+            <tr><td>Стандартен A4</td><td>21.0 x 29.7</td><td>20€ - 30€</td></tr>
+            <tr><td>Голям A3</td><td>29.7 x 42.0</td><td>30€ - 40€</td></tr>
+            <tr><td>Оригинал</td><td>Ръчно рисуван</td><td>По запитване</td></tr>
         </tbody>
     </table>
 </div>
-<section id="contact" style="padding: 60px 20px; text-align: center; background-color: #000; color: white; border-top: 2px solid #e74c3c;">
-    <h2 style="color: #e74c3c; font-size: 2.5em; margin-bottom: 20px;">Свържи се с мен</h2>
-    <p style="font-size: 1.2em; margin-bottom: 40px;">За поръчки или въпроси относно принтовете:</p>
 
-    <div style="display: flex; justify-content: center; gap: 25px; flex-wrap: wrap;">
-        
-        <!-- ЛИНК ТЕЛЕФОН -->
-        <a href="tel:+359888123456" style="text-decoration: none; color: white; background: #444; padding: 15px 30px; border-radius: 50px; border: 1px solid #e74c3c; transition: 0.3s;">
-            📞 0876030418
-        </a>
-
-        <!-- ЛИНК INSTAGRAM (видях, че вече ползваш iavor.georgiev) -->
-        <a href="https://www.instagram.com/iavor.georgiev/" target="_blank" style="text-decoration: none; color: white; background: #444; padding: 15px 30px; border-radius: 50px; border: 1px solid #e74c3c; transition: 0.3s;">
-            📸 Instagram
-        </a>
-
-        <!-- ЛИНК MESSENGER -->
-       <a href="https://www.facebook.com/profile.php?id=100009464872283" target="_blank" style="text-decoration: none; color: white; background: #222; padding: 15px 30px; border-radius: 5px; border: 1px solid #e74c3c;">
-    💬 Facebook Профил
-</a>
-
+<section id="contact" style="padding: 60px 20px; text-align: center; background-color: #000; border-top: 2px solid #e74c3c;">
+    <h2 style="color: #e74c3c;">Свържи се с мен</h2>
+    <div style="margin-top: 20px;">
+        <a href="tel:+359876030418" style="color: white; text-decoration: none; margin: 0 20px;">📞 0876030418</a>
+        <a href="https://www.instagram.com/iavor.georgiev/" target="_blank" style="color: white; text-decoration: none; margin: 0 20px;">📸 Instagram</a>
     </div>
 </section>
-<script>
-    window.onload = function() {
-        window.scrollTo(0, 0);
-    };
-</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
 
-<div id="order-modal" style="display:none; position:fixed; z-index:10000; left:0; top:0; width:100%; height:100%; background-color: rgba(0,0,0,0.95); overflow:auto;">
-    <div style="background-color: #1a1a1a; margin: 5% auto; padding: 30px; border: 2px solid #e74c3c; width: 90%; max-width: 450px; border-radius: 15px; color: white; position: relative; box-shadow: 0 0 30px rgba(231, 76, 60, 0.3);">
-        <span onclick="closeOrderForm()" style="position: absolute; right: 20px; top: 10px; font-size: 35px; cursor: pointer; color: #e74c3c;">&times;</span>
-        <h2 style="color: #e74c3c; margin-top: 0; text-align: center;">Нова Поръчка</h2>
-        <p id="order-item-display" style="text-align: center; font-size: 1.2em; color: #f0f0f0; margin-bottom: 25px; border-bottom: 1px solid #333; padding-bottom: 10px;"></p>
-        
+<div id="order-modal" style="display:none; position:fixed; z-index:10000; left:0; top:0; width:100%; height:100%; background: rgba(0,0,0,0.9);">
+    <div style="background: #1a1a1a; margin: 10% auto; padding: 30px; border: 2px solid #e74c3c; width: 90%; max-width: 400px; border-radius: 10px; color: white;">
+        <h2 id="order-item-display"></h2>
         <form action="https://formspree.io/f/mwvybjvv" method="POST">
             <input type="hidden" name="Картина" id="artwork-name-hidden">
-            
-            <label style="display:block; margin-bottom: 5px;">Вашето Име:</label>
-            <input type="text" name="Име" required style="width:100%; padding:12px; margin-bottom:15px; background:#262626; border:1px solid #444; color:white; border-radius: 5px;">
-            
-            <label style="display:block; margin-bottom: 5px;">Телефон за връзка:</label>
-            <input type="tel" name="Телефон" required style="width:100%; padding:12px; margin-bottom:15px; background:#262626; border:1px solid #444; color:white; border-radius: 5px;">
-            
-            <label style="display:block; margin-bottom: 5px;">Адрес за доставка (Еконт/Спиди):</label>
-            <textarea name="Адрес" required style="width:100%; padding:12px; margin-bottom:15px; background:#262626; border:1px solid #444; color:white; border-radius: 5px; height:80px; resize: none;"></textarea>
-            
-            <button type="submit" style="width: 100%; padding: 15px; background: #e74c3c; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 1.1em;">ПОТВЪРДИ ПОРЪЧКАТА</button>
+            <input type="text" name="Име" placeholder="Вашето Име" required style="width:100%; padding:10px; margin: 10px 0; background:#333; color:white; border:none;">
+            <input type="tel" name="Телефон" placeholder="Телефон" required style="width:100%; padding:10px; margin: 10px 0; background:#333; color:white; border:none;">
+            <button type="submit" class="buy-button" style="width:100%;">ПОТВЪРДИ</button>
+            <button type="button" onclick="closeOrderForm()" style="width:100%; background:none; color:gray; border:none; margin-top:10px; cursor:pointer;">Отказ</button>
         </form>
     </div>
 </div>
 
 <script>
 function openOrderForm(itemName) {
-    
-   if (window.event) {
-        window.event.preventDefault();
-        window.event.stopPropagation();
-    }
-    
     document.getElementById('order-modal').style.display = 'block';
-    document.getElementById('order-item-display').innerText = 'Рисунка: ' + itemName;
+    document.getElementById('order-item-display').innerText = itemName;
     document.getElementById('artwork-name-hidden').value = itemName;
 }
-
 function closeOrderForm() {
     document.getElementById('order-modal').style.display = 'none';
 }
-
-window.onclick = function(event) {
-    var modal = document.getElementById('order-modal');
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
 </script>
+
 </body>
 </html>
