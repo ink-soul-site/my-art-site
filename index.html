@@ -330,12 +330,15 @@
 
 <div id="order-modal" style="display:none; position:fixed; z-index:10000; left:0; top:0; width:100%; height:100%; background: rgba(0,0,0,0.9);">
     <div style="background: #111; margin: 10% auto; padding: 30px; border: 2px solid #ff0000; width: 90%; max-width: 400px; border-radius: 15px; color: white;">
-        <h2 id="order-item-display" style="color:#ff0000;"></h2>
-        <form action="https://formspree.io/f/mwvybjvv" method="POST">
-            <input type="hidden" name="Картина" id="artwork-name-hidden">
-            <input type="text" name="Име" placeholder="Вашето Име" required style="width:100%; padding:10px; margin: 10px 0; background:#222; color:white; border:1px solid #444;">
-            <input type="tel" name="Телефон" placeholder="Телефон" required style="width:100%; padding:10px; margin: 10px 0; background:#222; color:white; border:1px solid #444;">
-            <button type="submit" class="buy-button" style="width:100%;">ПОТВЪРДИ ПОРЪЧКАТА</button>
+       <h2 id="order-item-display" style="color:#ff0000;"></h2>
+<form action="https://formspree.io/f/mwvybjvv" method="POST">
+    <input type="hidden" name="Картина" id="artwork-name-hidden">
+    <input type="text" name="Име" placeholder="Вашето Име" required style="width:100%; padding:10px; margin: 10px 0; background:#222; color:white; border:1px solid #444;">
+    <input type="tel" name="Телефон" placeholder="Телефон" required style="width:100%; padding:10px; margin: 10px 0; background:#222; color:white; border:1px solid #444;">
+    
+    <textarea name="Адрес" placeholder="Град, офис на Еконт/Спиди или личен адрес" required style="width:100%; padding:10px; margin: 10px 0; background:#222; color:white; border:1px solid #444; border-radius:5px; height:80px; resize:none;"></textarea>
+
+    <button type="submit" class="buy-button" style="width:100%;">ПОТВЪРДИ ПОРЪЧКАТА</button>
             <button type="button" onclick="closeOrderForm()" style="width:100%; background:none; color:gray; border:none; margin-top:10px; cursor:pointer;">Отказ</button>
         </form>
     </div>
