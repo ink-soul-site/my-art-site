@@ -345,12 +345,12 @@
             <input type="hidden" name="Картина" id="artwork-name-hidden">
             <input type="text" name="Име" placeholder="Вашето Име" required style="width:100%; padding:10px; margin: 10px 0; background:#222; color:white; border:1px solid #444;">
             <input type="tel" name="Телефон" placeholder="Телефон" required style="width:100%; padding:10px; margin: 10px 0; background:#222; color:white; border:1px solid #444;">
+            <textarea name="Адрес" placeholder="Адрес за доставка (Град, офис на Еконт/Спиди)" required style="width:100%; padding:10px; margin: 10px 0; background:#222; color:white; border:1px solid #444; height: 80px; font-family: inherit; resize: vertical;"></textarea>
             <button type="submit" class="buy-button" style="width:100%;">ПОТВЪРДИ ПОРЪЧКАТА</button>
             <button type="button" onclick="closeOrderForm()" style="width:100%; background:none; color:gray; border:none; margin-top:10px; cursor:pointer;">Отказ</button>
         </form>
     </div>
 </div>
-
 <script>
 function openOrderForm(itemName) {
     document.getElementById('order-modal').style.display = 'block';
